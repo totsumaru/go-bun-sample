@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  db:
+    image: mysql:8
+    container_name: go_bun_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+    platform:
+      linux/x86_64
+    ports:
+      - "3306:3306"
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  db:
